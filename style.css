@@ -2,26 +2,39 @@
     border: 1px solid black;
 }
 
-div {
-    display: inline-block;
+#color-palette {
+    display: inline-flex;
 }
 
 #black {
     background-color: black;
     padding: 30px;
+    margin: 1px;
 }
 
 #red {
     background-color: red;
     padding: 30px;
+    margin: 1px;
 }
 
 #orange {
     background-color: orange;
     padding: 30px;
+    margin: 1px;
 }
 
 #green {
     background-color: green;
     padding: 30px;
+    margin: 1px;
 }
+
+.pixel {
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+}
+
+#pixel-board {}
