@@ -1,0 +1,27 @@
+.color {
+    border: 1px solid black;
+}
+
+div {
+    display: inline-block;
+}
+
+#blue {
+    background-color: blue;
+    padding: 30px;
+}
+
+#red {
+    background-color: red;
+    padding: 30px;
+}
+
+#orange {
+    background-color: orange;
+    padding: 30px;
+}
+
+#green {
+    background-color: green;
+    padding: 30px;
+}
