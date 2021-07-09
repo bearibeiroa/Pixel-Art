@@ -25,13 +25,6 @@ main {
     background-color: green;
 }
 
-.pixel {
-    border: 1px solid black;
-    height: 40px;
-    width: 40px;
-    background-color: white;
-}
-
 #pixel-board {
     display: grid;
     grid: auto-flow / repeat(5, auto);

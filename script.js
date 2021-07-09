@@ -1,8 +1,13 @@
 window.onload = function() {
+    //Global
+    const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
+    const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
+    let getColor = document.getElementsByClassName('color')
 
+
+    //Requisito 2 - Cria paleta de quatro cores distintas
+    //Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors 
     function createColorPalette() {
-        const linePalette = document.querySelector('#color-palette');
-        const arrayOfColors = ['black', 'red', 'orange', 'green'];
         for (let index = 0; index < 4; index += 1) {
             const line = document.createElement('div');
             line.classList.add('color');
@@ -13,48 +18,72 @@ window.onload = function() {
     createColorPalette();
 
 
-    const firstColor = document.querySelector('.color');
-    firstColor.classList.add('selected');
-
+    //Requisito 4 - Cria quadro de pixels com 25 pixels
+    //Requisito 5 - Estilo dos quadros pixel
 
     function createPixelBoard(value) {
         const pixelBoardArea = document.querySelector('#pixel-board');
         for (let index = 0; index < value; index += 1) {
             const pixelItem = document.createElement('div');
             pixelItem.className = 'pixel';
+            pixelItem.style.width = '40px';
+            pixelItem.style.height = '40px';
+            pixelItem.style.border = '1px solid black';
+            pixelItem.style.backgroundColor = 'white';
             pixelBoardArea.appendChild(pixelItem);
         }
     }
     createPixelBoard(5 * 5);
 
+    // Requisito 6 - Adiciona a classe selected a cor preta - O querySelector trás o primeiro elemento com a classe .color. A partir dele adiciono a classe .selected.
 
-    function pickColor(color) {
-        console.log(color);
-        document.addEventListener('click', (event) => {
-            if (event.target.classList.contains('pixel')) {
-                event.target.style.backgroundColor = `${color}`;
-            }
-        }, false);
+    function setFirstColorBlack() {
+        getColor[0].classList.add('selected');
     }
-    pickColor('orange')
+    setFirstColorBlack()
 
-    function getPalleteColor() {
-        const pallete = document.querySelector('#color-palette');
-        const colors = document.querySelectorAll('.color');
-        pallete.addEventListener('click', (event) => {
-            colors.forEach((color) => {
-                color.classList.remove('selected');
-            });
-            if (event.target.classList.contains('color')) {
+
+    //Requisito 7
+
+    function changePalette(event) {
+        for (let i = 0; i < getColor.length; i += 1) {
+            getColor[i].classList.remove('selected');
+            event.target.classList.add('selected');
+            getColor[i] = event.target;
+        }
+    }
+
+    function clickColor() {
+        for (const arrayOfColors of getColor) {
+            arrayOfColors.addEventListener('click', changePalette);
+        }
+    }
+    clickColor();
+
+    function pickPixelColor() {
+        let getPixel = document.querySelectorAll('#color-palette .color');
+        for (let index = 0; index < getPixel.length; index += 1) {
+            getPixel[index].addEventListener('click', (event) => {
+                document.querySelector('.selected').classList.remove('selected');
                 event.target.classList.add('selected');
-                pickColor(event.target.classList[1]);
-            } else {
-                colors[0].classList.add('selected');
-                pickColor('black');
-            }
-        });
+            });
+        }
     }
-    getPalleteColor();
+    pickPixelColor()
+
+
+    function paintPixelBoard() {
+        const paint = function(event) {
+            const click = event;
+            const pickColor = document.querySelector('.selected').style.backgroundColor;
+            if (event.target.className === 'pixel') {
+                click.target.style.backgroundColor = pickColor;
+            }
+        }
+        document.querySelector('#pixel-board').addEventListener('click', paint);
+    }
+    paintPixelBoard()
+
 
     function clearBoardColors() {
         const pixels = document.querySelectorAll('.pixel');
@@ -66,5 +95,4 @@ window.onload = function() {
         });
     }
     clearBoardColors();
-
 }
