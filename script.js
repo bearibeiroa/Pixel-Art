@@ -1,4 +1,5 @@
 window.onload = function() {
+
     function createColorPalette() {
         const linePalette = document.querySelector('#color-palette');
         let arrayOfColors = ['black', 'red', 'orange', 'green'];
@@ -13,4 +14,16 @@ window.onload = function() {
 
     let firstColor = document.querySelector('.color');
     firstColor.classList.add('selected');
+
+    function createPixelBoard(value) {
+        const pixelBoardArea = document.querySelector('#pixel-board');
+        for (let i = 0; i < value; i += 1) {
+            const pixelItem = document.createElement('div');
+            pixelItem.className = 'pixel';
+            pixelBoardArea.appendChild(pixelItem);
+        }
+    }
+    createPixelBoard(5 * 5);
+
+
 }
