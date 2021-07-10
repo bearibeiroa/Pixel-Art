@@ -43,35 +43,26 @@ window.onload = function() {
     setFirstColorBlack()
 
 
-    //Requisito 7
+    //Requisito 7 
+    //Usei o exercício de fixaçãp do 5.3 como referência.
 
-    function changePalette(event) {
-        for (let i = 0; i < getColor.length; i += 1) {
-            getColor[i].classList.remove('selected');
-            event.target.classList.add('selected');
-            getColor[i] = event.target;
-        }
+    const black = document.getElementsByClassName('color')[0];
+    const red = document.getElementsByClassName('color')[1];
+    const orange = document.getElementsByClassName('color')[2];
+    const green = document.getElementsByClassName('color')[3];
+
+    function changeSelected(event) {
+        const selectedElement = document.querySelector('.selected');
+        selectedElement.classList.remove('selected');
+        event.target.classList.add('selected');
     }
-
-    function clickColor() {
-        for (const arrayOfColors of getColor) {
-            arrayOfColors.addEventListener('click', changePalette);
-        }
-    }
-    clickColor();
-
-    function pickPixelColor() {
-        let getPixel = document.querySelectorAll('#color-palette .color');
-        for (let index = 0; index < getPixel.length; index += 1) {
-            getPixel[index].addEventListener('click', (event) => {
-                document.querySelector('.selected').classList.remove('selected');
-                event.target.classList.add('selected');
-            });
-        }
-    }
-    pickPixelColor()
+    black.addEventListener('click', changeSelected);
+    red.addEventListener('click', changeSelected);
+    orange.addEventListener('click', changeSelected);
+    green.addEventListener('click', changeSelected);
 
 
+    //Requisito 8 
     function paintPixelBoard() {
         const paint = function(event) {
             const click = event;
@@ -84,7 +75,7 @@ window.onload = function() {
     }
     paintPixelBoard()
 
-
+    //Requisito 9
     function clearBoardColors() {
         const pixels = document.querySelectorAll('.pixel');
         const button = document.querySelector('#clear-board');
