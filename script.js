@@ -32,6 +32,9 @@ window.onload = function() {
             pixelItem.style.backgroundColor = 'white';
             pixelBoardArea.appendChild(pixelItem);
         }
+        const firstDiv = document.querySelector('.pixel');
+        firstDiv.classList.add('quadradaum');
+
     }
     createPixelBoard(5 * 5);
 
@@ -44,39 +47,29 @@ window.onload = function() {
 
 
     //Requisito 7 
-    //Usei o exercício de fixaçãp do 5.3 como referência.
-
-    const black = document.getElementsByClassName('color')[0];
-    const red = document.getElementsByClassName('color')[1];
-    const orange = document.getElementsByClassName('color')[2];
-    const green = document.getElementsByClassName('color')[3];
+    //Usei o exercício de fixação do 5.3 como referência.
 
     function changeSelected(event) {
         const selectedElement = document.querySelector('.selected');
         selectedElement.classList.remove('selected');
         event.target.classList.add('selected');
     }
-    black.addEventListener('click', changeSelected);
-    red.addEventListener('click', changeSelected);
-    orange.addEventListener('click', changeSelected);
-    green.addEventListener('click', changeSelected);
-
+    const divona = document.querySelector('#color-palette');
+    divona.addEventListener('click', changeSelected);
 
     //Requisito 8 
-    function paintPixelBoard() {
-        const paint = function(event) {
-            const click = event;
-            const pickColor = document.querySelector('.selected').style.backgroundColor;
-            if (event.target.className === 'pixel') {
-                click.target.style.backgroundColor = pickColor;
-            }
-        }
-        document.querySelector('#pixel-board').addEventListener('click', paint);
+
+    function paintPixelBoard(event) {
+        const corSelecionada = document.querySelector('.selected');
+        event.target.style.backgroundColor = corSelecionada.style.backgroundColor
     }
-    paintPixelBoard()
+    const paiDosQuadradaum = document.querySelector('#pixel-board');
+    paiDosQuadradaum.addEventListener('click', paintPixelBoard);
+
 
     //Requisito 9
-    function clearBoardColors() {
+    function
+    clearBoardColors() {
         const pixels = document.querySelectorAll('.pixel');
         const button = document.querySelector('#clear-board');
         button.addEventListener('click', () => {
@@ -85,5 +78,5 @@ window.onload = function() {
             });
         });
     }
-    clearBoardColors();
+    clearBoardColors()
 }
