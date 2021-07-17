@@ -7,23 +7,39 @@ window.onload = function() {
 
     //Requisito 2 - Cria paleta de quatro cores distintas
     //Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors 
+
+    //Requisito 12 - Paleta de cores gera cores aleatórias
+    function generateRandomColor() {
+        const red = Math.random() * 255;
+        const green = Math.random() * 255;
+        const blue = Math.random() * 255;
+
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
+    generateRandomColor()
+
     function createColorPalette() {
-        for (let index = 0; index < 4; index += 1) {
+        for (let index = 0; index < arrayOfColors.length; index += 1) {
             const line = document.createElement('div');
             line.classList.add('color');
-            line.style.backgroundColor = arrayOfColors[index];
             linePalette.appendChild(line);
+            if (index === 0) {
+                line.style.backgroundColor = arrayOfColors[0];
+            } else {
+                line.style.backgroundColor = generateRandomColor();
+            }
         }
     }
     createColorPalette();
 
 
+
     //Requisito 4 - Cria quadro de pixels com 25 pixels
     //Requisito 5 - Estilo dos quadros pixel
 
-    function createPixelBoard() {
+    function createPixelBoard(value) {
         const pixelBoardArea = document.querySelector('#pixel-board');
-        for (let index = 0; index < 25; index += 1) {
+        for (let index = 0; index < value; index += 1) {
             const pixelItem = document.createElement('div');
             pixelItem.className = 'pixel';
             pixelItem.style.width = '40px';
@@ -34,9 +50,8 @@ window.onload = function() {
         }
         const firstDiv = document.querySelector('.pixel');
         firstDiv.classList.add('quadradaum');
-
     }
-    createPixelBoard();
+    createPixelBoard(5 * 5);
 
     // Requisito 6 - Adiciona a classe selected a cor preta - O getElementsByClassName (linha 5) trás os elementos com a classe .color. A partir dele adiciono a classe .selected na posição 0.
 
@@ -68,8 +83,7 @@ window.onload = function() {
 
 
     //Requisito 9
-    function
-    clearBoardColors() {
+    function clearBoardColors() {
         const pixel = document.querySelectorAll('.pixel');
         const button = document.querySelector('#clear-board');
         button.addEventListener('click', function() {
