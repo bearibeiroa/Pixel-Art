@@ -32,26 +32,38 @@ window.onload = function() {
     }
     createColorPalette();
 
+    function createPixelBoardElement() {
+        const boardContainer = document.querySelector('#board-container');
+        pixelBoard = document.createElement('div');
+        pixelBoard.id = 'pixel-board';
+        boardContainer.appendChild(pixelBoard);
+    }
 
+    createPixelBoardElement();
 
     //Requisito 4 - Cria quadro de pixels com 25 pixels
     //Requisito 5 - Estilo dos quadros pixel
+    // Tamanho inicial do board
+
 
     function createPixelBoard(value) {
         const pixelBoardArea = document.querySelector('#pixel-board');
-        for (let index = 0; index < value; index += 1) {
-            const pixelItem = document.createElement('div');
-            pixelItem.className = 'pixel';
-            pixelItem.style.width = '40px';
-            pixelItem.style.height = '40px';
-            pixelItem.style.border = '1px solid black';
-            pixelItem.style.backgroundColor = 'white';
-            pixelBoardArea.appendChild(pixelItem);
+        for (let indexRow = 0; indexRow < value; indexRow += 1) {
+            const row = document.createElement('div');
+            row.className = 'row';
+            row.style.backgroundColor = 'white';
+            pixelBoardArea.appendChild(row);
+            for (let indexcolumns = 0; indexcolumns < value; indexcolumns += 1) {
+                const newPixels = document.createElement('div');
+                newPixels.className = 'pixel';
+                newPixels.style.backgroundColor = 'white';
+                pixelBoardArea.appendChild(newPixels);
+            }
         }
-        const firstDiv = document.querySelector('.pixel');
-        firstDiv.classList.add('quadradaum');
     }
-    createPixelBoard(5 * 5);
+    createPixelBoard(5);
+
+
 
     // Requisito 6 - Adiciona a classe selected a cor preta - O getElementsByClassName (linha 5) trás os elementos com a classe .color. A partir dele adiciono a classe .selected na posição 0.
 
@@ -83,14 +95,45 @@ window.onload = function() {
 
 
     //Requisito 9
+    const button = document.querySelector('#clear-board');
+
     function clearBoardColors() {
         const pixel = document.querySelectorAll('.pixel');
-        const button = document.querySelector('#clear-board');
-        button.addEventListener('click', function() {
-            for (index = 0; index < pixel.length; index += 1) {
-                pixel[index].style.backgroundColor = 'white';
-            }
-        });
+
+        for (index = 0; index < pixel.length; index += 1) {
+            pixel[index].style.backgroundColor = 'white';
+        }
     }
-    clearBoardColors()
+    button.addEventListener('click', clearBoardColors)
+
+    //Requisito 10
+    const vqvButton = document.querySelector('#generate-board');
+
+    //remove quadrado existente
+    function resetBoard() {
+        const defaultPixelBoard = document.querySelector('#pixel-board');
+        defaultPixelBoard.innerHTML = '';
+    }
+
+    //Cria um novo quadro a partir do input
+
+    function createUserBoard() {
+        resetBoard();
+        const inputValue = document.querySelector('#board-size').value;
+        let inputNumber = parseInt(inputValue, 10);
+        if (inputValue === '') {
+            alert('Board inválido!');
+        } else if (inputNumber < 5) {
+            createPixelBoard(5);
+        } else if (inputNumber > 50) {
+            createPixelBoard(50);
+        } else {
+            resetBoard();
+            createPixelBoardElement()
+            createPixelBoard(inputValue);
+            inputValue.value = '';
+        }
+
+    }
+    vqvButton.addEventListener('click', createUserBoard)
 }
