@@ -21,9 +21,9 @@ window.onload = function() {
     //Requisito 4 - Cria quadro de pixels com 25 pixels
     //Requisito 5 - Estilo dos quadros pixel
 
-    function createPixelBoard(value) {
+    function createPixelBoard() {
         const pixelBoardArea = document.querySelector('#pixel-board');
-        for (let index = 0; index < value; index += 1) {
+        for (let index = 0; index < 25; index += 1) {
             const pixelItem = document.createElement('div');
             pixelItem.className = 'pixel';
             pixelItem.style.width = '40px';
@@ -36,9 +36,9 @@ window.onload = function() {
         firstDiv.classList.add('quadradaum');
 
     }
-    createPixelBoard(5 * 5);
+    createPixelBoard();
 
-    // Requisito 6 - Adiciona a classe selected a cor preta - O querySelector trás o primeiro elemento com a classe .color. A partir dele adiciono a classe .selected.
+    // Requisito 6 - Adiciona a classe selected a cor preta - O getElementsByClassName (linha 5) trás os elementos com a classe .color. A partir dele adiciono a classe .selected na posição 0.
 
     function setFirstColorBlack() {
         getColor[0].classList.add('selected');
@@ -70,12 +70,12 @@ window.onload = function() {
     //Requisito 9
     function
     clearBoardColors() {
-        const pixels = document.querySelectorAll('.pixel');
+        const pixel = document.querySelectorAll('.pixel');
         const button = document.querySelector('#clear-board');
-        button.addEventListener('click', () => {
-            pixels.forEach((pixel) => {
-                pixel.style.backgroundColor = 'white';
-            });
+        button.addEventListener('click', function() {
+            for (index = 0; index < pixel.length; index += 1) {
+                pixel[index].style.backgroundColor = 'white';
+            }
         });
     }
     clearBoardColors()

@@ -2,6 +2,11 @@ main {
     text-align: center;
 }
 
+input {
+    height: 33px;
+    border-radius: 0px;
+}
+
 .color {
     border: 1px solid black;
     display: inline-block;
@@ -36,6 +41,16 @@ main {
     margin-top: 20px;
     padding: 8px 18px 10px 18px;
     font-family: monospace;
+    background-color: red;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+#generate-board {
+    margin-top: 20px;
+    padding: 8px 18px 10px 18px;
+    font-family: monospace;
     background-color: green;
     font-size: 16px;
+    color: whitesmoke;
 }
