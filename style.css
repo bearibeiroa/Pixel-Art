@@ -1,68 +1,68 @@
 main {
-    text-align: center;
+  text-align: center;
 }
 
 input {
-    height: 33px;
-    border-radius: 0px;
+  height: 33px;
+  border-radius: 0;
 }
 
 .color {
-    border: 1px solid black;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
+  border: 1px solid black;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
 }
 
 #black {
-    background-color: black;
+  background-color: black;
 }
 
 #red {
-    background-color: red;
+  background-color: red;
 }
 
 #orange {
-    background-color: orange;
+  background-color: orange;
 }
 
 #green {
-    background-color: green;
+  background-color: green;
 }
 
 #pixel-board {
-    margin: auto;
-    display: table;
-    padding: 0px;
-    margin-top: 20px;
+  margin: auto;
+  display: table;
+  padding: 0;
+  margin-top: 20px;
 }
 
 .row {
-    display: table-row;
+  display: table-row;
 }
 
 .pixel {
-    display: table-cell;
-    height: 40px;
-    width: 40px;
-    border: 1px solid black;
-    margin: 5px;
+  display: table-cell;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  margin: 5px;
 }
 
 #clear-board {
-    margin-top: 20px;
-    padding: 8px 18px 10px 18px;
-    font-family: monospace;
-    background-color: red;
-    font-size: 16px;
-    color: whitesmoke;
+  margin-top: 20px;
+  padding: 8px 18px 10px;
+  font-family: monospace;
+  background-color: red;
+  font-size: 16px;
+  color: whitesmoke;
 }
 
 #generate-board {
-    margin-top: 20px;
-    padding: 8px 18px 10px 18px;
-    font-family: monospace;
-    background-color: green;
-    font-size: 16px;
-    color: whitesmoke;
+  margin-top: 20px;
+  padding: 8px 18px 10px;
+  font-family: monospace;
+  background-color: green;
+  font-size: 16px;
+  color: whitesmoke;
 }
