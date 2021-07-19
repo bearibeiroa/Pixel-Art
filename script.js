@@ -2,6 +2,7 @@
 const linePalette = document.querySelector('#color-palette'); /* div da paleta de cores */
 const arrayOfColors = ['black', 'red', 'orange', 'green']; /* array de cores */
 const getColor = document.getElementsByClassName('color');
+const pixelSquare = '#pixel-board';
 
 /* Requisito 2 - Cria paleta de quatro cores distintas */
 /* Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors */
@@ -15,12 +16,13 @@ function generateRandomColor() {
 generateRandomColor();
 
 function createColorPalette() {
+  const [black] = arrayOfColors;
   for (let index = 0; index < arrayOfColors.length; index += 1) {
     const line = document.createElement('div');
     line.classList.add('color');
     linePalette.appendChild(line);
     if (index === 0) {
-      line.style.backgroundColor = arrayOfColors[0];
+      line.style.backgroundColor = black;
     } else {
       line.style.backgroundColor = generateRandomColor();
     }
@@ -43,7 +45,7 @@ createPixelBoardElement();
 
 function createPixelBoard(value) {
   for (let indexRow = 0; indexRow < value; indexRow += 1) {
-    const pixelBoardArea = document.querySelector('#pixel-board');
+    const pixelBoardArea = document.querySelector(pixelSquare);
     const row = document.createElement('div');
     row.className = 'row';
     row.style.backgroundColor = 'white';
@@ -79,9 +81,10 @@ divona.addEventListener('click', changeSelected);
 
 function paintPixelBoard(event) {
   const corSelecionada = document.querySelector('.selected');
-  event.target.style.backgroundColor = corSelecionada.style.backgroundColor;
+  const evento = event.target;
+  evento.style.backgroundColor = corSelecionada.style.backgroundColor;
 }
-const paiDosQuadradaum = document.querySelector('#pixel-board');
+const paiDosQuadradaum = document.querySelector(pixelSquare);
 paiDosQuadradaum.addEventListener('click', paintPixelBoard);
 
 /* Requisito 9 */
@@ -101,7 +104,7 @@ const vqvButton = document.querySelector('#generate-board');
 
 /* Remove quadrado existente */
 function resetBoard() {
-  const defaultPixelBoard = document.querySelector('#pixel-board');
+  const defaultPixelBoard = document.querySelector(pixelSquare);
   defaultPixelBoard.innerHTML = '';
 }
 
