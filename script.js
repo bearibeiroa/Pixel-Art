@@ -1,9 +1,8 @@
-window.onload = function () {
+window.onload = function onload () {
   /* Global */
   const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
   const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
   let getColor = document.getElementsByClassName('color')
-
 
   //Requisito 2 - Cria paleta de quatro cores distintas
   //Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors
@@ -120,7 +119,7 @@ window.onload = function () {
   function createUserBoard() {
       resetBoard();
       const inputValue = document.querySelector('#board-size').value;
-      let inputNumber = parseInt(inputValue, 10);
+      const inputNumber = parseInt(inputValue, 10);
       if (inputValue === '') {
           alert('Board inválido!');
       } else if (inputNumber < 5) {
