@@ -15,12 +15,12 @@ function generateRandomColor() {
 generateRandomColor();
 
 function createColorPalette() {
-    for (let index = 0; index < arrayOfColors.length; index += 1) {
+  for (let index = 0; index < arrayOfColors.length; index += 1) {
     const line = document.createElement('div');
     line.classList.add('color');
     linePalette.appendChild(line);
     if (index === 0) {
-       line.style.backgroundColor = arrayOfColors[0];
+      line.style.backgroundColor = arrayOfColors[0];
     } else {
       line.style.backgroundColor = generateRandomColor();
     }
