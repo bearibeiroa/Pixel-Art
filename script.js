@@ -43,7 +43,7 @@ createPixelBoardElement();
 
 function createPixelBoard(value) {
   for (let indexRow = 0; indexRow < value; indexRow += 1) {
-    const pixelBoardArea = document.querySelector('#pixel-board');
+    pixelBoardArea = document.querySelector('#pixel-board');
     const row = document.createElement('div');
     row.className = 'row';
     row.style.backgroundColor = 'white';
