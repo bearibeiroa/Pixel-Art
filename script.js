@@ -1,13 +1,15 @@
 window.onload = function onload() {
+
   /* Global */
+  
   const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
   const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
-  let getColor = document.getElementsByClassName('color')
+  let getColor = document.getElementsByClassName('color');
 
   /* Requisito 2 - Cria paleta de quatro cores distintas */
   /* Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors */
-  
-  //Requisito 12 - Paleta de cores gera cores aleatórias
+
+  /* Requisito 12 - Paleta de cores gera cores aleatórias */
   function generateRandomColor() {
     const red = Math.random() * 255;
     const green = Math.random() * 255;
@@ -15,7 +17,7 @@ window.onload = function onload() {
 
     return `rgb(${red}, ${green}, ${blue})`;
   }
-  generateRandomColor()
+  generateRandomColor();
 
   function createColorPalette() {
     for (let index = 0; index < arrayOfColors.length; index += 1) {
@@ -82,7 +84,7 @@ window.onload = function onload() {
 
   function paintPixelBoard(event) {
     const corSelecionada = document.querySelector('.selected');
-    event.target.style.backgroundColor = corSelecionada.style.backgroundColor
+    event.target.style.backgroundColor = corSelecionada.style.backgroundColor;
   }
   const paiDosQuadradaum = document.querySelector('#pixel-board');
   paiDosQuadradaum.addEventListener('click', paintPixelBoard);
@@ -97,7 +99,7 @@ window.onload = function onload() {
       pixel[index].style.backgroundColor = 'white';
     }
   }
-  button.addEventListener('click', clearBoardColors)
+  button.addEventListener('click', clearBoardColors);
 
   /* Requisito 10 */
   const vqvButton = document.querySelector('#generate-board');
@@ -122,7 +124,7 @@ window.onload = function onload() {
       createPixelBoard(50);
     } else {
       resetBoard();
-      createPixelBoardElement()
+      createPixelBoardElement();
       createPixelBoard(inputValue);
       inputValue.value = '';
     }
