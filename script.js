@@ -1,15 +1,13 @@
-window.onload = function onload() {
-
-  /* Global */
-  
+ /* Global */
   const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
   const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
-  let getColor = document.getElementsByClassName('color');
+  const getColor = document.getElementsByClassName('color');
 
   /* Requisito 2 - Cria paleta de quatro cores distintas */
   /* Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors */
-
   /* Requisito 12 - Paleta de cores gera cores aleatórias */
+window.onload = function onload() {
+
   function generateRandomColor() {
     const red = Math.random() * 255;
     const green = Math.random() * 255;
@@ -32,6 +30,7 @@ window.onload = function onload() {
     }
   }
   createColorPalette();
+};
 
   function createPixelBoardElement() {
     const boardContainer = document.querySelector('#board-container');
@@ -130,4 +129,4 @@ window.onload = function onload() {
     }
   }
   vqvButton.addEventListener('click', createUserBoard);
-};
+
