@@ -1,19 +1,16 @@
- /* Global */
-  const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
-  const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
-  const getColor = document.getElementsByClassName('color');
+/* Global */
+const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
+const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
+const getColor = document.getElementsByClassName('color');
 
-  /* Requisito 2 - Cria paleta de quatro cores distintas */
-  /* Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors */
-  /* Requisito 12 - Paleta de cores gera cores aleatórias */
-window.onload = function onload() {
-
+/* Requisito 2 - Cria paleta de quatro cores distintas */
+/* Requisito 3 - Adiciona a cor preta como a primeira cor da paleta através da ordem do arrayOfColors */
+/* Requisito 12 - Paleta de cores gera cores aleatórias */
   function generateRandomColor() {
-    const red = Math.random() * 255;
-    const green = Math.random() * 255;
-    const blue = Math.random() * 255;
-
-    return `rgb(${red}, ${green}, ${blue})`;
+  const red = Math.random() * 255;
+  const green = Math.random() * 255;
+  const blue = Math.random() * 255;
+  return `rgb(${red}, ${green}, ${blue})`;
   }
   generateRandomColor();
 
@@ -30,7 +27,7 @@ window.onload = function onload() {
     }
   }
   createColorPalette();
-};
+
 
   function createPixelBoardElement() {
     const boardContainer = document.querySelector('#board-container');
