@@ -1,5 +1,5 @@
 window.onload = function () {
-  /*Global*/
+  /* Global */
   const linePalette = document.querySelector('#color-palette'); //div da paleta de cores
   const arrayOfColors = ['black', 'red', 'orange', 'green']; //array de cores
   let getColor = document.getElementsByClassName('color')
