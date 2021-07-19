@@ -15,12 +15,12 @@ function generateRandomColor() {
 generateRandomColor();
 
 function createColorPalette() {
-  for (let index = 0; index < arrayOfColors.length; index += 1) {
+    for (let index = 0; index < arrayOfColors.length; index += 1) {
     const line = document.createElement('div');
     line.classList.add('color');
     linePalette.appendChild(line);
     if (index === 0) {
-      line.style.backgroundColor = arrayOfColors[0];
+       line.style.backgroundColor = arrayOfColors[0];
     } else {
       line.style.backgroundColor = generateRandomColor();
     }
@@ -42,8 +42,8 @@ createPixelBoardElement();
 /* Tamanho inicial do board */
 
 function createPixelBoard(value) {
-  const pixelBoardArea = document.querySelector('#pixel-board');
   for (let indexRow = 0; indexRow < value; indexRow += 1) {
+    const pixelBoardArea = document.querySelector('#pixel-board');
     const row = document.createElement('div');
     row.className = 'row';
     row.style.backgroundColor = 'white';
@@ -52,7 +52,7 @@ function createPixelBoard(value) {
       const newPixels = document.createElement('div');
       newPixels.className = 'pixel';
       newPixels.style.backgroundColor = 'white';
-      pixelBoardArea.appendChild(newPixels);
+      row.appendChild(newPixels);
     }
   }
 }
