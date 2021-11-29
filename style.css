@@ -1,7 +1,7 @@
 main {
   text-align: center;
   margin: 50px 130px;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   background-repeat: no-repeat;
   background-size: 100%;
   border: 1px solid rgb(60, 133, 192);
@@ -10,7 +10,7 @@ main {
 
 }
 
-body{
+body {
   background-image: linear-gradient(purple, orange, blue);
   height: 900px;
   font-family: VT323, monospace;
@@ -25,7 +25,7 @@ input {
   font-family: VT323, monospace;
 }
 
-.comands{
+.comands {
   margin: 30px auto;
 
 
